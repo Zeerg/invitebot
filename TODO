@@ -1,0 +1,36 @@
+Follow Profile:
+
+https://www.linkedin.com/voyager/api/identity/profiles/ACoAAADO0OEBz4T2S7lAC-6rmp8eKTI19TJyahI/profileActions?versionTag=1556979503&action=follow
+
+Follow Company:
+https://www.linkedin.com/voyager/api/entities/companies/264743?action=follow
+
+Follow Topic:
+curl 'https://www.linkedin.com/voyager/api/fee
+
+Need to work out POSTING and getting the tracking ID.
+
+import requests
+
+headers = {
+    'origin': 'https://www.linkedin.com',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'en-US,en;q=0.8',
+    'cookie': 'bcookie="v=2&0d03a83e-3812-43fa-880c-3b3a982d1bb6"; bscookie="v=1&201704272045193e884e0c-85af-4255-896b-2375fd9d3d9aAQG_13f4pUb8M3tHEDHPCIf9LjJn1LBa"; __utma=226841088.841858652.1497929028.1503615046.1503615046.1; __utmz=226841088.1503615046.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); visit="v=1&M"; jobs_hru=false; share_setting=PUBLIC; SID=73371b3f-2482-4cd8-8319-dbcf7b555b26; VID=V_2017_11_07_13_124; sl="v=1&d_BBa"; JSESSIONID="ajax:1247840876795680076"; liap=true; li_at=AQEDASO8jyQCpqKGAAABX6RkJjoAAAFfyHCqOk4Avpg7c6rP-jokAbus7t5nwAhl3sbfsZTisVk1H2pLxoFxUrRB5NgFEvEqqEp-T4vM1YS0EtPBnfUtM4WHwfbNSlz6jRE4M1z9Nn3gghIAMUic3O7B; lil-lang=en_US; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; lang="v=2&lang=en-us"; _ga=GA1.2.841858652.1497929028; _gat=1; _lipt=CwEAAAFfrfG9Gl0IDiwAE8khLQn_Ild4N766H5aGg4k4A1SV6PIl7O4J30djxYX_c7BqBp4Na08KSp4idY--Sxen4wrmmjrFR2nml9jEukElEAv4FK8TEFt_xPr9E2WsqaQbI2qjnbsKFfNh-g8EjoIzncvhGuvqka0AvVerI4zTcXlGbhcovg80MqSnby9Zpc3FhGoaOiacrJD8ltd_Q3_4ihR3MmSUmbSSY-6nf9BnAN9PDkfpK9iqgQtizBk2co_Shsm8xg; lidc="b=TB72:g=1007:u=13:i=1510451834:t=1510510856:s=AQG9EYa44uTWClf5m1PDUcJLlflnuB6H"',
+    'pragma': 'no-cache',
+    'cache-control': 'no-cache',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'content-type': 'application/json',
+    'accept': '*/*',
+    'csrf-token': 'ajax:1247840876795680076',
+    'authority': 'www.linkedin.com',
+    'referer': 'https://www.linkedin.com/mynetwork/',
+}
+
+data = '[{"eventInfo":{"topicName":"PymkClientImpressionEvent","eventName":"PymkClientImpressionEvent","appId":"com.linkedin.flagship3.d_web"},"eventBody":{"requestHeader":{"path":"https://www.linkedin.com/mynetwork/","pageKey":"d_flagship3_people","trackingCode":"d_flagship3_feed","referer":"https://www.linkedin.com","interfaceLocale":"en_US"},"header":{"pageInstance":{"pageUrn":"urn:li:page:d_flagship3_people","trackingId":"kTWHlQh2RP+c4f5sftTMpw=="},"time":1510451984649,"clientApplicationInstance":{"applicationUrn":"urn:li:application:(voyager-web,voyager-web)","version":"1.1.1132","trackingId":[-48,-85,-62,53,27,27,71,37,-105,81,28,8,-95,45,-102,-45]}},"usageContext":"d_flagship3_people","recommendations":[{"trackingId":"4pGAAWwFT0aeFG0vdSYBMg==","recommendationUrn":"urn:li:member:221626503","listPosition":{"index":6}}]}},{"eventInfo":{"topicName":"PymkClientImpressionEvent","eventName":"PymkClientImpressionEvent","appId":"com.linkedin.flagship3.d_web"},"eventBody":{"requestHeader":{"path":"https://www.linkedin.com/mynetwork/","pageKey":"d_flagship3_people","trackingCode":"d_flagship3_feed","referer":"https://www.linkedin.com","interfaceLocale":"en_US"},"header":{"pageInstance":{"pageUrn":"urn:li:page:d_flagship3_people","trackingId":"kTWHlQh2RP+c4f5sftTMpw=="},"time":1510451984649,"clientApplicationInstance":{"applicationUrn":"urn:li:application:(voyager-web,voyager-web)","version":"1.1.1132","trackingId":[-48,-85,-62,53,27,27,71,37,-105,81,28,8,-95,45,-102,-45]}},"usageContext":"d_flagship3_people","recommendations":[{"trackingId":"YivsLLcxR2m2PRJQIHjR+A==","recommendationUrn":"urn:li:member:400960144","listPosition":{"index":7}}]}}]'
+
+requests.post('https://www.linkedin.com/li/track', headers=headers, data=data)
+
+Search shit bypass limit.
+
+curl 'https://www.linkedin.com/search/results/index/?keywords=cloud%20quarterback&origin=GLOBAL_SEARCH_HEADER' -H 'accept-encoding: gzip, deflate, br' -H 'accept-language: en-US,en;q=0.9' -H 'upgrade-insecure-requests: 1' -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'cache-control: max-age=0' -H 'authority: www.linkedin.com' -H 'cookie: bcookie="v=2&0d03a83e-3812-43fa-880c-3b3a982d1bb6"; bscookie="v=1&201704272045193e884e0c-85af-4255-896b-2375fd9d3d9aAQG_13f4pUb8M3tHEDHPCIf9LjJn1LBa"; __utma=226841088.841858652.1497929028.1503615046.1503615046.1; __utmz=226841088.1503615046.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); visit="v=1&M"; jobs_hru=false; share_setting=PUBLIC; SID=73371b3f-2482-4cd8-8319-dbcf7b555b26; VID=V_2017_11_07_13_124; sl="v=1&d_BBa"; JSESSIONID="ajax:1247840876795680076"; liap=true; li_at=AQEDASO8jyQCpqKGAAABX6RkJjoAAAFfyHCqOk4Avpg7c6rP-jokAbus7t5nwAhl3sbfsZTisVk1H2pLxoFxUrRB5NgFEvEqqEp-T4vM1YS0EtPBnfUtM4WHwfbNSlz6jRE4M1z9Nn3gghIAMUic3O7B; lil-lang=en_US; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; lidc="b=TB72:g=1010:u=13:i=1510596084:t=1510682437:s=AQFQE0BuxJgESwkHvV-zNCvi8kZqF9ac"; lang="v=2&lang=en-us"; _ga=GA1.2.841858652.1497929028; _gat=1; _lipt=CwEAAAFftr_GnPPPwWrXxGc2v28AoueKWIJxafqXxi6XC-b1oqpHePPOPJ3RR0MkvyCAMwHHxWY_8zJLnC3mGQqbnCm-HLBiW9D1VEuOdKts8SYxhXTqd3L6fnMAgppHKP1rCcE63k9C78bSlem3ovvg5m4_LXeDYCkvhWBXC8E1auNyoExPrql7bGkxhu5UBwRn840x9rI1MBK4PDX5dB5Dnz62k4IjReT8hQEz6t-MgRDD4P25kfZ3d2uYxwIPFru-l__DtTI5ozDSCGkP-_npcA' --compressed
