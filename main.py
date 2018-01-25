@@ -90,7 +90,7 @@ def increase_network():
     jsessionid = str(linkedin_network.request.headers['cookie']).split(';')[4:-4]
     jsessionid_join = str("".join(jsessionid))
     pattern = r'"([^"]*)"'
-    a_join = re.findall(pattern, jsessionid_join)
+    a_join = re.findall(pattern, jsessionid_join)[0]
     csrf_token = str("".join(a_join))
     apicsrf = {
         'csrf-token': csrf_token
@@ -98,6 +98,7 @@ def increase_network():
     # Get the fs_miniProfile from the Linkedin User API. We'll use this to invite them.
     linkedin_invites = client.get(INVITES, headers=apicsrf)
     invites = json.loads(linkedin_invites.text)
+
     # Invite Peeeeeeeople
     for item in invites['elements']:
         id = str(item['entity']['com.linkedin.voyager.identity.shared.MiniProfile']['entityUrn']).split(":")[3]
