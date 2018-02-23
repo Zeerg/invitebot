@@ -101,9 +101,9 @@ def increase_network():
 
     # Invite Peeeeeeeople
     for item in invites['elements']:
-        id = str(item['entity']['com.linkedin.voyager.identity.shared.MiniProfile']['entityUrn']).split(":")[3]
+        user_id = str(item['entity']['com.linkedin.voyager.identity.shared.MiniProfile']['entityUrn']).split(":")[3]
         # Build the data
-        data = '{"trackingId":"yvzykVorToqcOuvtxjSFMg==","invitations":[],"excludeInvitations":[],"invitee":{"com.linkedin.voyager.growth.invitation.InviteeProfile":{"profileId":' + '"' + id + '"' + '}}}'
+        data = '{"trackingId":"yvzykVorToqcOuvtxjSFMg==","invitations":[],"excludeInvitations":[],"invitee":{"com.linkedin.voyager.growth.invitation.InviteeProfile":{"profileId":' + '"' + user_id + '"' + '}}}'
         rando_sleep(1,3)
         post_invites = client.post(INVITE_POST, headers=apicsrf, data=data)
         if post_invites.status_code == 201:
