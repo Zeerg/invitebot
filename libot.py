@@ -17,11 +17,10 @@ INVITE_POST = 'https://www.linkedin.com/voyager/api/growth/normInvitations'
 JOBS_URL = 'https://www.linkedin.com/jobs/'
 MAIN_NETWORK = 'https://www.linkedin.com/feed/'
 FOLLOW_NETWORK = 'https://www.linkedin.com/feed/follow/'
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36','accept-encoding': 'gzip, deflate br','x-li-lang': 'en_US','accept-language': 'en-US,en;q=0.8',
-'pragma':'no-cache'}
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'accept-encoding': 'gzip, deflate br', 'x-li-lang': 'en_US', 'accept-language': 'en-US,en;q=0.8', 'pragma': 'no-cache'}
 
 
-#Sweet logo is sweet.
+# Can't have a sweet tool without a sweeeeeeet logo.
 def zeerg():
     print("""
     
@@ -43,11 +42,13 @@ def zeerg():
     Add your credentials to config.py and go.
     """)
 
-#Sleep function
+
+# Sleep function
 def rando_sleep(sleep_min, sleep_max):
     sleep(randint(sleep_min, sleep_max))
 
-#Connect with requests and pull csrf token.
+
+# Connect with requests and pull csrf token.
 def connect(username, password):
     html = client.get(HOMEPAGE_URL).content
     soup = BeautifulSoup(html, "html.parser")
@@ -104,7 +105,8 @@ def increase_network():
         user_id = str(item['entity']['com.linkedin.voyager.identity.shared.MiniProfile']['entityUrn']).split(":")[3]
         # Build the data
         data = '{"trackingId":"yvzykVorToqcOuvtxjSFMg==","invitations":[],"excludeInvitations":[],"invitee":{"com.linkedin.voyager.growth.invitation.InviteeProfile":{"profileId":' + '"' + user_id + '"' + '}}}'
-        rando_sleep(1,3)
+        if config.speed_boost is False:
+            rando_sleep(1, 3)
         post_invites = client.post(INVITE_POST, headers=apicsrf, data=data)
         if post_invites.status_code == 201:
             success = success + 1
@@ -115,27 +117,27 @@ def increase_network():
 
 def random_user_actions():
     print("Do Random Things")
-    the_thing = randint(1,4)
+    the_thing = randint(1, 3)
     if the_thing == 1:
         open_main()
     if the_thing == 2:
         open_my_network()
     if the_thing == 3:
         open_jobs_feed()
-    if the_thing == 4:
-        rando_sleep(1, 300)
 
 
 if __name__ == '__main__':
     # Connect to Linkedin Account whatever
-    connect(config.username,config.password)
-    zeerg() # print that sweet logo
+    connect(config.username, config.password)
+    zeerg()  # print that sweet logo
     # Invite People to My Network
     # Add some randomness to invites Opening pages...etc.
     invites_sent = 0
     while invites_sent < config.invites_to_send:
-        random_user_actions()
+        if config.speed_boost is False:
+            random_user_actions()
         invites_sent = invites_sent + increase_network()
         print("Successful Invites Sent: " + str(invites_sent))
-        rando_sleep(1,300)
-        random_user_actions()
+        if config.speed_boost is False:
+            rando_sleep(1, 300)
+            random_user_actions()

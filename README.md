@@ -1,11 +1,11 @@
 # LinkedIn Invitation Python Bot
 
 Basic bot to auto invite people from your Linkedin Suggested list.
-Added some entropy so they don't insta ban.
+Added some entropy so they don't insta ban. Works with Python3 not tested on 2
 
 Install Depends 
 
-`requirments.txt`
+`pip install -r requirments.txt`
 
 Credentials go in:
 
@@ -13,4 +13,4 @@ Credentials go in:
 
 Run with
 
-`main.py`
+`python libot.py`
